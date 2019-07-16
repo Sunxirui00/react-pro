@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import About from '../../routers/about'
-import Comment from '../../routers/comment'
+import CommentApp from '../../routers/comment/CommentApp'
 
 function BasicExample() {
     return (
@@ -21,7 +21,7 @@ function BasicExample() {
 
                 <hr />
 
-                <Route exact path="/" component={Comment} />
+                <Route exact path="/" component={CommentApp} />
                 <Route path="/about" component={About} />
                 <Route path="/topics" component={Topics} />
             </div>
