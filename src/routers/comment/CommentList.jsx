@@ -2,27 +2,27 @@ import React, {Component} from 'react'
 import Comment from './Comment'
 import './comment.sass'
 
-const data = [
-    {
-        name: 'ralf0843',
-        content: '呼呼哈哈哈哈'
-    },
-    {
-        name: 'ralf0843',
-        content: '打蜡拉到拉到'
-    }
-];
-
 class CommentList extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
 
+    static defaultProps = {
+        comments: []
+    }
+
+    _del (i) {
+        if(this.props.onDel){
+            this.props.onDel(i);
+        }
+    }
+
     render() {
+        const { comments } = this.props;
         return (
             <div className="comment-list">
-                {data.map((item, i)=> <Comment key={i} item={item} />)}
+                {comments.map((item, i)=> <Comment onDel={this._del.bind(this)} i={i} key={i} item={item} />)}
             </div>
         )
     }
